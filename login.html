@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login Page</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      height: 100vh;
+      background: linear-gradient(135deg, #74ABE2, #5563DE);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .login-box {
+      background: #fff;
+      width: 350px;
+      padding: 40px;
+      border-radius: 15px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    }
+
+    .login-box h2 {
+      text-align: center;
+      margin-bottom: 30px;
+      color: #333;
+    }
+
+    .input-box {
+      margin-bottom: 20px;
+    }
+
+    .input-box label {
+      display: block;
+      font-weight: 500;
+      margin-bottom: 8px;
+      color: #333;
+    }
+
+    .input-box input {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 14px;
+    }
+
+    .input-box input:focus {
+      border-color: #5563DE;
+      outline: none;
+    }
+
+    .btn {
+      width: 100%;
+      background: #5563DE;
+      color: #fff;
+      border: none;
+      padding: 10px;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      background: #3742fa;
+    }
+
+    .register-link {
+      text-align: center;
+      margin-top: 15px;
+      font-size: 14px;
+    }
+
+    .register-link a {
+      color: #5563DE;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .register-link a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="login-box">
+    <h2>Login</h2>
+    <form action="#">
+      <div class="input-box">
+        <label for="username">Username</label>
+        <input type="text" id="username" placeholder="Enter your username" required>
+      </div>
+
+      <div class="input-box">
+        <label for="password">Password</label>
+        <input type="password" id="password" placeholder="Enter your password" required>
+      </div>
+
+      <button type="submit" class="btn">Login</button>
+
+      <div class="register-link">
+        <p>Don't have an account? <a href="#">Register here</a></p>
+      </div>
+    </form>
+  </div>
+<script>
+  let username1 = ["User1", "User2", "User3"];
+  let password = ["pass1", "pass2", "pass3"];
+  let pass = document.querySelector("#password");
+  let username = document.querySelector("#username");
+  let btn = document.querySelector(".btn");
+  let errorMsg = document.getElementById("errorMsg");
+
+  const fun = (event) => {
+    event.preventDefault(); // stop form from reloading
+    let valid = false;
+
+    for (let i = 0; i < username1.length; i++) {
+      if (username.value === username1[i] && pass.value === password[i]) {
+        valid = true;
+        break;
+      }
+    }
+
+    if (valid) {
+      window.location.href = "main.html";
+    } else {
+      // errorMsg.textContent = "❌ Invalid username or password!";
+    }
+  };
+
+  btn.addEventListener("click", fun);
+</script>
+</body>
+</html>
